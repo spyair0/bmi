@@ -1,0 +1,77 @@
+import java.util.Scanner;
+public class T {
+public static void main(String[] args) {
+	Scanner input=new Scanner(System.in);
+	String a=input.next();
+	int b=input.nextInt();
+	double c=input.nextDouble();
+	double d=input.nextDouble();
+	BMI bmi =new BMI();
+	bmi.setname(a);
+	bmi.setage(b);
+	bmi.setweight(c);
+	bmi.setheight(d);
+	System.out.println("姓名"+bmi.getname());
+	System.out.println("年龄"+bmi.getage());
+	System.out.println("体重指数"+bmi.getBMI());
+	System.out.println("体重状况"+bmi.getStaus());
+}
+static class BMI{
+	private String name;
+	private int age;
+	private double weight;
+	private double height;
+	public void BMI() {
+}
+	public void set(String name,int age,double weight,double height) {
+		this.name=name;
+		this.age=age;
+		this.weight=weight;
+		this.height=height;
+	}
+	public void set1(double weight,double height) {
+		this.weight=weight;
+		this.height=height;
+	}
+	public void setname(String newname) {
+		name=newname;
+	}
+	public void setage(int newage) {
+		age=newage;
+	}
+	public void setweight(double newweight) {
+		weight=newweight;
+	}
+	public void setheight(double newheight) {
+		height=newheight;
+	}
+	public String getname() {
+		return name;
+	}
+	public int getage() {
+		return age;
+	}
+	public double getweight() {
+		return weight;
+	}
+	public double getheight() {
+		return height;
+	}
+	public double getBMI() {
+		return weight/Math.pow(height, 2);
+	}
+	public String getStaus() {
+		double BMI=weight/Math.pow(height, 2);
+		if(BMI<18.5&&BMI>=0) {
+			return "低重";
+		}else if(BMI>=18.5&&BMI<25.0) {
+			return "正常";
+		}else if(BMI>=25.0&&BMI<30.0) {
+			return "超重";
+		}else if(BMI>=30.0) {
+			return"肥胖";
+		}
+		return null;
+	}
+}	
+}
